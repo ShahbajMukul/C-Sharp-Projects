@@ -4,47 +4,57 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFPeopleAndAddresses"
-        mc:Ignorable="d"
+        mc:Ignorable="d" FontSize="22"
         Title="Addresses" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
+
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
+
+            <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="*" />
 
         </Grid.ColumnDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="2" Margin="10 5 0 0" HorizontalAlignment="Center" FontSize="25" Grid.ColumnSpan="2" >Addresses</TextBlock>
+        <TextBlock x:Name="personNameLabel" Grid.Row="1" Grid.Column="0" Margin="0 0 0 0" HorizontalAlignment="Center" Grid.ColumnSpan="2" FontSize ="23">Name</TextBlock>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0">
-            <TextBlock  Margin="5 15 5 15">Street Address: </TextBlock>
-            <TextBox x:Name="streetTextBox" MinWidth="200" MaxWidth="300" MaxHeight="30" Margin="5 -60 0 0"></TextBox>
-        </StackPanel>
-        
-        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0">
-            <TextBlock  Margin="5 50 5 15">City:</TextBlock>
-            <TextBox x:Name="cityTextBox" MinWidth="100" MaxWidth="150" MaxHeight="30" Margin="5 10 0 0"></TextBox>
-        </StackPanel>
+        <TextBlock Grid.Row="2" Grid.Column="0" Margin="10 20 5 0" HorizontalAlignment="Right" >Street Address:</TextBlock>
+        <TextBox x:Name="streetTextBox" Grid.Row="2" Grid.Column="1" MinWidth="100" MaxWidth="300" Margin="0 20 5 0" Grid.ColumnSpan="2"></TextBox>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0">
-            <TextBlock  Margin="5 15 5 15">State: </TextBlock>
-            <TextBox x:Name="stateTextBox" MinWidth="120" MaxHeight="30" Margin="5 -60 0 0"></TextBox>
-        </StackPanel>
+        <TextBlock Grid.Row="3" Grid.Column="0" Margin="10 20 5 0" HorizontalAlignment="Right" >City:</TextBlock>
+        <TextBox x:Name="cityTextBox" Grid.Row="3" Grid.Column="1" MinWidth="100" MaxWidth="300" Margin="0 20 5 0" Grid.ColumnSpan="2"></TextBox>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0">
-            <TextBlock  Margin="5 50 5 15">Zip Code: </TextBlock>
-            <TextBox x:Name="zipCodeTextBox" MinWidth="100" MaxHeight="30" Margin="5 10 0 0"></TextBox>
-        </StackPanel>
+        <TextBlock Grid.Row="4" Grid.Column="0" Margin="10 20 5 0" HorizontalAlignment="Right" >State:</TextBlock>
+        <TextBox x:Name="stateTextBox" Grid.Row="4" Grid.Column="1" MinWidth="100" MaxWidth="300" Margin="0 20 5 0" Grid.ColumnSpan="2"></TextBox>
 
-        <TextBlock x:Name="personNameLabel" Grid.Row="0" Grid.Column="1" Margin="25 25 25 50">Name</TextBlock>
+        <TextBlock Grid.Row="5" Grid.Column="0" Margin="10 20 5 0" HorizontalAlignment="Right" >Zip Code:</TextBlock>
+        <TextBox x:Name="zipCodeTextBox" Grid.Row="5" Grid.Column="1" MinWidth="100" MaxWidth="300" Margin="0 20 5 0" Grid.ColumnSpan="2"></TextBox>
 
-        <ListBox x:Name="addressesListBox" Grid.Row="0" Grid.Column="2" >
+        <Button x:Name="addAddressButton" Grid.Row="6" Grid.Column="1" Margin="0 15 0 15" Height="30" Width="150" HorizontalAlignment="Right" Click="addAddressButton_Click">Add Address</Button>
+
+
+
+
+
+
+
+
+        <ListBox x:Name="addressesListBox" Grid.Row="1" Grid.Column="3" Grid.RowSpan="5" Grid.ColumnSpan="3" Margin="10 15 10 0">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding}" />
@@ -52,7 +62,6 @@
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <Button x:Name="addAddressButton" Grid.Row="2" Grid.Column="0" Margin="0 -100 0 0" Height="20" Width="100" Click="addAddressButton_Click">Add Address</Button>
-   
+
     </Grid>
 </Window>
