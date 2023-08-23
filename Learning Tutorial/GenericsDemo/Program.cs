@@ -42,15 +42,22 @@ namespace GenericsDemo
 			//Homework
 
 			GenericTwo<VehicleModel> genericTwo = new GenericTwo<VehicleModel> ();
+
 			genericTwo.ConvertAndPrint(new VehicleModel { ManufacturerName = "Toyota", YearManufactured = 2008, ContainsError = false });
+			
 
-			foreach (var item in genericTwo)
+			List<VehicleModel> carList = new List<VehicleModel> ();
+			carList.Add(new VehicleModel { ManufacturerName = "Honda", YearManufactured = 2018, ContainsError= false });
+			carList.Add(new VehicleModel { ManufacturerName = "Ford", YearManufactured = 2022, ContainsError = false });
+			carList.Add(new VehicleModel { ManufacturerName = "Tesla", YearManufactured = 2018, ContainsError = true });
+
+
+			foreach (var car in carList)
 			{
-                Console.WriteLine(item.);
-            }
+				genericTwo.ConvertAndPrint(car);
+			}
 
-
-			Console.ReadLine();
+            Console.ReadLine();
 			
 		}
 
@@ -95,63 +102,72 @@ namespace GenericsDemo
 			
 						
 	}
-/*
-	public class GenericHelper<T> where T : IErrorCheck
-	{
-		public List<T> Items { get; set; } = new List<T>();
-		public List<T> RejectedItems { get; set; } = new List<T>();
-
-		public void CheckItemAndAdd(T item)
+	/*
+		public class GenericHelper<T> where T : IErrorCheck
 		{
-			if (item.HasError)
+			public List<T> Items { get; set; } = new List<T>();
+			public List<T> RejectedItems { get; set; } = new List<T>();
+
+			public void CheckItemAndAdd(T item)
 			{
-				RejectedItems.Add(item);
+				if (item.HasError)
+				{
+					RejectedItems.Add(item);
+				}
+				else
+				{
+					Items.Add(item);
+				}
 			}
-			else
-			{
-				Items.Add(item);
-			}
+
 		}
 
-	}
+		public interface IErrorCheck
+		{
+			bool HasError { get; set; }
+		}
 
-	public interface IErrorCheck
-	{
-		bool HasError { get; set; }
-	}
+		public class PersonModel : IErrorCheck
+		{
+			public string FirstName { get; set; }
+			public string LastName { get; set; }
+			public bool HasError { get; set; }
+		}
+	*/
 
-	public class PersonModel : IErrorCheck
+	public class GenericTwo<T> where T : IErrorChecking
 	{
-		public string FirstName { get; set; }
-		public string LastName { get; set; }
-		public bool HasError { get; set; }
-	}
-*/
-	public class GenericTwo<T>  where T : IErrorChecking
-	{
-		public void ConvertAndPrint(T itemToPrint)
+		public List<string> ValidStrings { get; set; } = new List<string>();
+		public List<T> InvalidItems { get; set; } = new List<T>();
+		public void ConvertAndPrint(VehicleModel itemToPrint) // Use VehicleModel as the type argument
 		{
 			if (itemToPrint.ContainsError == false)
 			{
-                Console.WriteLine(itemToPrint.ToString()); 
+				ValidStrings.Add(itemToPrint.ToString());
+				Console.WriteLine(itemToPrint.ToString()); // Print the value to the console
 			}
 			else
 			{
-                Console.WriteLine("Invalid input");
-            }
+				
+			}
 		}
 	}
 
 	public class VehicleModel : IErrorChecking
 	{
-        public string ManufacturerName { get; set; }
-        public int YearManufactured { get; set; }
+		public string ManufacturerName { get; set; }
+		public int YearManufactured { get; set; }
 		public bool ContainsError { get; set; }
+		public override string ToString() // Override the ToString method to return a custom string
+		{
+			return $"{ManufacturerName} - {YearManufactured}";
+		}
 	}
 
 	public interface IErrorChecking
 	{
-        bool ContainsError { get; set; }
-    }
+		bool ContainsError { get; set; }
+	}
+
 
 }

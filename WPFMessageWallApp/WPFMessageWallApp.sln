@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34009.444
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelLibrary", "ModelLibrary\ModelLibrary.csproj", "{3708BFB2-C03F-427F-9A5D-D41F93852BBB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFPeopleAndAddresses", "WPFPeopleAndAddresses\WPFPeopleAndAddresses.csproj", "{7657D843-5929-401C-91CA-0A09503663AB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3708BFB2-C03F-427F-9A5D-D41F93852BBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3708BFB2-C03F-427F-9A5D-D41F93852BBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3708BFB2-C03F-427F-9A5D-D41F93852BBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3708BFB2-C03F-427F-9A5D-D41F93852BBB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7657D843-5929-401C-91CA-0A09503663AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7657D843-5929-401C-91CA-0A09503663AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7657D843-5929-401C-91CA-0A09503663AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7657D843-5929-401C-91CA-0A09503663AB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {56AA0591-29B4-4165-8ABF-B22846287D69}
+	EndGlobalSection
+EndGlobal
