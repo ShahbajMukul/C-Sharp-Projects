@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace InterfaceDemo
 {
-    public class AudioPlayer : IMediaPlayer
+    public class VideoPlayer : IMediaPlayer
     {
         public (string name, double length) NowPlaying()
         {
@@ -18,17 +18,17 @@ namespace InterfaceDemo
 
         public void Pause()
         {
-            Console.WriteLine("Paused audio");
+            Console.WriteLine("Paused the video");
         }
 
         public void Play()
         {
-            Console.WriteLine("Playing audio");
+            Console.WriteLine("Playing the video");
         }
 
         public void Stop()
         {
-            Console.WriteLine("Stopped audio");
+            Console.WriteLine("Stopped the video");
         }
     }
 }
